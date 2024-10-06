@@ -23,6 +23,7 @@
     border-radius: 5px;
     border: 1px solid #ccc;
     padding:  15px;
+    display: flex;
     flex-direction: column;
     gap: 15px;
 }
@@ -57,4 +58,10 @@
       animation: logo-spin infinite 20s linear;
     }
   
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+
 }

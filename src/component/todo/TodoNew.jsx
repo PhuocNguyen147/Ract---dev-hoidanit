@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 const TodoNew = (props) => {
-    // const { addNewTodo } = props
+    const { addNewTodo } = props
     // addNewTodo("Phuoc");
 
     const [valueInput, setValueInput] = useState('eric')
@@ -13,7 +13,9 @@ const TodoNew = (props) => {
     }
 
     const handleClick = () => {
-        alert(valueInput)
+        // alert(valueInput)
+        addNewTodo(valueInput);
+        setValueInput("");
     }
 
 
@@ -21,6 +23,7 @@ const TodoNew = (props) => {
         <div className='todo-new'>
             <input type="text"
                 onChange={(event) => { handleOnchange(event.target.value) }}
+                value={valueInput} //gia trị của ô input
             />
             <button style={{ cursor: "pointer" }}
                 onClick={handleClick}
