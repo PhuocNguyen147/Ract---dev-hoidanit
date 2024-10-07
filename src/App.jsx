@@ -2,7 +2,10 @@ import './component/todo/todo.css'
 import TodoData from './component/todo/TodoData'
 import TodoNew from './component/todo/TodoNew'
 import logoReact from './assets/react.svg'
+import Header from './component/layout/header'
 import { useState } from 'react'
+import Footer from './component/layout/footer'
+import { Outlet } from 'react-router-dom'
 const App = () => {
   const [todoList, setTodoList] = useState([])
 
@@ -24,25 +27,29 @@ const App = () => {
 
   }
   return (
-    <div className="todo-container" >
-      <div className="todo-title"> Todo List </div>
-      <TodoNew
-        addNewTodo={addNewTodo}
-      />
-      {
-        todoList.length > 0 ?
-          <TodoData
-            todoList={todoList}
-            deleteTodo={deleteTodo}
-          />
-          :
-          <div className='todo-image'>
-            <img src={logoReact} className='logo' />
-          </div>
 
-      }
+    <>
+      <Header />
+      <Outlet />
+      <div className="todo-container" >
+        <div className="todo-title"> Todo List </div>
+        <TodoNew
+          addNewTodo={addNewTodo}
+        />
+        {
+          todoList.length > 0 ?
+            <TodoData
+              todoList={todoList}
+              deleteTodo={deleteTodo}
+            />
+            :
+            <div className='todo-image'>
+              <img src={logoReact} className='logo' />
+            </div>
 
-      {/* {
+        }
+
+        {/* {
         todoList.length > 0 &&
         <TodoData
           todoList={todoList}
@@ -55,7 +62,10 @@ const App = () => {
           <img src={logoReact} className='logo' />
         </div>
       } */}
-    </div>
+      </div>
+      <Footer />
+    </>
+
   )
 }
 
