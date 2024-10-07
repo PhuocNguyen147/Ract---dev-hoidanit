@@ -29,8 +29,6 @@ const App = () => {
       <TodoNew
         addNewTodo={addNewTodo}
       />
-
-
       {
         todoList.length > 0 ?
           <TodoData
