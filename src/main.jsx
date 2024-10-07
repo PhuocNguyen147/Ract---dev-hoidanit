@@ -10,21 +10,28 @@ import {
 import LoginPage from './pages/login.jsx';
 import RegisterPage from './pages/register.jsx';
 import UserPage from './pages/user.jsx';
-import ProductPage from './pages/product.jsx';
+import BookPage from './pages/book.jsx';
+import TodoApp from './component/todo/TodoApp.jsx';
+import ErrorPage from './component/layout/error.jsx';
 const router = createBrowserRouter([  //chia trang tren thanh tim kiem
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     //nested router cha-con
     children: [
+      {
+        index: true,
+        element: <TodoApp />
+      },
       {
         path: "/users",
         element: <UserPage />
       }
       ,
       {
-        path: "/products",
-        element: <ProductPage />
+        path: "/books",
+        element: <BookPage />
       }
     ]
   },
