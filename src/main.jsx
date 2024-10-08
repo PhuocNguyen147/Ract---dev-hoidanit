@@ -30,7 +30,7 @@ const router = createBrowserRouter([  //chia trang tren thanh tim kiem
       }
       ,
       {
-        path: "/books ",
+        path: "/books",
         element: <BookPage />
       }
     ]
