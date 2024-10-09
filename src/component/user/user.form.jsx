@@ -1,7 +1,7 @@
 import { Input, notification, Modal } from 'antd';
 import { Button } from "antd";
 import { useState } from 'react';
-import { createUserAPI, updateUserAPI } from '../../service/api.service';
+import { createUserAPI } from '../../service/api.service';
 
 const UserForm = (props) => {
     const { loadUser } = props

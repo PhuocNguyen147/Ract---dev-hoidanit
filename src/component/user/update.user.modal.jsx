@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Input, notification, Modal } from "antd";
-import { createUserAPI, updateUserAPI } from '../../service/api.service';
+import { updateUserAPI } from '../../service/api.service';
 
 const UpdateUserModal = (props) => {
     const { isModalUpdateOpen, setIsModalUpdateOpen, dataUpdate, setDataUpdate, loadUser } = props
@@ -11,7 +11,7 @@ const UpdateUserModal = (props) => {
 
 
     useEffect(() => {
-        console.log(">>> check data Update props", dataUpdate)
+        // console.log(">>> check data Update props", dataUpdate)
         if (dataUpdate) {
             setId(dataUpdate._id)
             setFullName(dataUpdate.fullName);
@@ -76,7 +76,7 @@ const UpdateUserModal = (props) => {
                     <span>Phone</span>
                     <Input
                         value={phone}
-                        onChange={(event) => { setPassword(event.target.value) }}
+                        onChange={(event) => { setPhone(event.target.value) }}
                     />
                 </div>
 
