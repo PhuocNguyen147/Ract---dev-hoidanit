@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './style/global.css'
@@ -13,6 +13,8 @@ import UserPage from './pages/user.jsx';
 import BookPage from './pages/book.jsx';
 import TodoApp from './component/todo/TodoApp.jsx';
 import ErrorPage from './component/layout/error.jsx';
+import { AuthWrapper } from './component/context/auth.context.jsx';
+import PrivateRouter from './pages/private.route.jsx';
 const router = createBrowserRouter([  //chia trang tren thanh tim kiem
   {
     path: "/",
@@ -31,7 +33,12 @@ const router = createBrowserRouter([  //chia trang tren thanh tim kiem
       ,
       {
         path: "/books",
-        element: <BookPage />
+        element: (
+          <PrivateRouter>
+            <BookPage />
+          </PrivateRouter>
+        )
+
       }
     ]
   },
@@ -49,6 +56,9 @@ const router = createBrowserRouter([  //chia trang tren thanh tim kiem
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   // <React.StrictMode>
-  <RouterProvider router={router} />
+  <AuthWrapper>
+    <RouterProvider router={router} />
+  </AuthWrapper>
+
   // </React.StrictMode>,
 )

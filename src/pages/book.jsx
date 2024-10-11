@@ -1,6 +1,10 @@
+import bookTable from "../component/user/book.table";
+
+
 const BookPage = () => {
     return (
-        <div> Book Page</div>
+        <bookTable />
     )
+
 }
 export default BookPage;

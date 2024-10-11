@@ -1,7 +1,7 @@
 
 import { Button, Drawer, notification } from 'antd';
 import { useState } from 'react';
-import { handleUploadFile, updateUserAvaterAPI } from '../../service/api.service';
+import { handleUploadFile, updateUserAvatarAPI, } from '../../service/api.service';
 const ViewUserDetail = (props) => {
     const {
         isDetailOpen,
@@ -37,7 +37,7 @@ const ViewUserDetail = (props) => {
             //success;
             const newAvatar = resUpload.data.fileUploaded;
             //step 2: update user
-            const resUpdateAvatar = await updateUserAvaterAPI(newAvatar, dataDetail._id, dataDetail.fullName, dataDetail.phone)
+            const resUpdateAvatar = await updateUserAvatarAPI(newAvatar, dataDetail._id, dataDetail.fullName, dataDetail.phone)
 
             // console.log(">>>check new Avatar", newAvatar)
             if (resUpdateAvatar.data) {
